@@ -1,18 +1,16 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 import { useSignOut } from '../hooks/cognitoHooks';
 
-const SignOut = () => {
+const SignOut = ({ ...props }) => {
     const accessToken = sessionStorage.getItem('accessToken');
-    const { mutate, isLoading, isSuccess } = useSignOut();    
-    const navigate = useNavigate();
+    const { mutate, isLoading, isSuccess } = useSignOut();
+    // const navigate = useNavigate();
 
     useEffect(() => {
         if (isSuccess) {
-            // setTimeout(() => {
-            //     navigate('/signin');
-            // }, 100);
+            // navigate('/signin');
             window.location.href = '/signin';
         }
     }, [isSuccess]);
@@ -21,14 +19,10 @@ const SignOut = () => {
         mutate({ accessToken });
     };
 
-
     return (
-        <>
-            <button onClick={handleSignOut} disabled={isLoading}>
-                Sign Out
-            </button>
-            {isSuccess && <p>Signed out successfully</p>}
-        </>
+        <button {...props} onClick={handleSignOut} disabled={isLoading}>
+            Sign Out
+        </button>
     );
 };
 
