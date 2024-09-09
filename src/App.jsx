@@ -4,6 +4,7 @@ import Home from './components/Home.jsx';
 import SignIn from './components/SignIn.jsx';
 import SignUp from './components/SignUp.jsx';
 import ConfirmSignUp from './components/ConfirmSignUp.jsx';
+import ResetPassword from './components/ResetPassword.jsx';
 
 function AuthRoute({ component: Component }) {
     const isAuth = () => {
@@ -31,6 +32,7 @@ function App() {
                     <Route path="/signin" element={<SignRoute component={SignIn} />} />
                     <Route path="/signup" element={<SignRoute component={SignUp} />} />
                     <Route path="/confirm" element={<SignRoute component={ConfirmSignUp} />} />
+                    <Route path="/forgot" element={<SignRoute component={ResetPassword} />} />
                 </Routes>
             </BrowserRouter>
         </>

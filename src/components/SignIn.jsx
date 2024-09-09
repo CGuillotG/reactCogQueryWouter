@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { /* useNavigate, */ Link } from 'react-router-dom';
+import hyphenLogo from '../assets/hyphen_logo.png';
 
 import { useSignIn } from '../hooks/cognitoHooks';
 
@@ -27,7 +28,7 @@ const Signin = () => {
                 <div className="mb-6 flex items-center text-3xl font-semibold text-gray-900 dark:text-white">
                     <img
                         alt="logo"
-                        src="https://www3.technologyevaluation.com/getattachment/26a3751d-13f4-5b59-9ca9-8e8515893d66/logo.png?source=tw2&ext=.png"
+                        src={hyphenLogo}
                         className="mr-2 h-8 w-8"
                     />
                     Hyphen Demo
