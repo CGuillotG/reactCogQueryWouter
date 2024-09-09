@@ -53,6 +53,9 @@ pnpm test:ui
 ### Sign In Page - Parameter missing error
 ![Screenshot 3](./screenshots/screenshot03.png)
 
+### Reset Password Page
+- In Construction
+
 ### Sin Up Page
 ![Screenshot 4](./screenshots/screenshot04.png)
 
