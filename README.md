@@ -1,8 +1,81 @@
-# React + Vite
+# React + Vite Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a sample Vite React application with Cognito authentication using React Query (Tanstack), Tailwind CSS, and Vitest for testing.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install dependencies
+```bash
+pnpm install
+```
+Create a `.env` file in the root directory and add the following cognito credentials:
+```bash
+# AWS Region
+VITE_AWS_REGION=********
+
+# AWS Cognito User Pool ID
+VITE_COGNITO_USER_POOL_ID=***********
+
+# AWS Cognito App Client ID
+VITE_COGNITO_APP_CLIENT_ID=***************
+
+```
+
+## Development
+Run the application
+```bash
+pnpm dev
+```
+
+## Testing
+
+To run the tests once
+```bash
+pnpm test
+```
+To run the tests in watch mode
+```bash
+pnpm test:watch
+```
+To run the tests in watch mode with UI
+```bash
+pnpm test:ui
+```
+
+## Screenshots
+
+### Sign In Page
+![Screenshot 1](./screenshots/screenshot01.png)
+
+### Sign In Page- User & Password error
+![Screenshot 2](./screenshots/screenshot02.png)
+
+### Sign In Page - Parameter missing error
+![Screenshot 3](./screenshots/screenshot03.png)
+
+### Sin Up Page
+![Screenshot 4](./screenshots/screenshot04.png)
+
+### Sign Up Page - Password policy error 1
+![Screenshot 5](./screenshots/screenshot05.png)
+
+### Sign Up Page - Password policy error 2
+![Screenshot 6](./screenshots/screenshot06.png)
+
+### Sign Up Page - Password policy error 3
+![Screenshot 7](./screenshots/screenshot07.png)
+
+### Sign Up Page - Password policy error 4
+![Screenshot 8](./screenshots/screenshot08.png)
+
+### Sign Up Confirmation Page
+![Screenshot 9](./screenshots/screenshot09.png)
+
+### Emailed Code
+![Screenshot 10](./screenshots/screenshot10.png)
+
+### Signed In Home Page
+![Screenshot 11](./screenshots/screenshot11.png)
+
+### Signed In Home Page - Tokens in console
+![Screenshot 12](./screenshots/screenshot12.png)
