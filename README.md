@@ -47,28 +47,20 @@ pnpm test:ui
 ### Sign In Page
 ![Screenshot 1](./screenshots/screenshot01.png)
 
-### Sign In Page- User & Password error
+### Sign In Page - User & Password errors
 ![Screenshot 2](./screenshots/screenshot02.png)
-
-### Sign In Page - Parameter missing error
 ![Screenshot 3](./screenshots/screenshot03.png)
 
 ### Reset Password Page
 - In Construction
 
-### Sin Up Page
+### Sign Up Page
 ![Screenshot 4](./screenshots/screenshot04.png)
 
-### Sign Up Page - Password policy error 1
+### Sign Up Page - Password policy errors
 ![Screenshot 5](./screenshots/screenshot05.png)
-
-### Sign Up Page - Password policy error 2
 ![Screenshot 6](./screenshots/screenshot06.png)
-
-### Sign Up Page - Password policy error 3
 ![Screenshot 7](./screenshots/screenshot07.png)
-
-### Sign Up Page - Password policy error 4
 ![Screenshot 8](./screenshots/screenshot08.png)
 
 ### Sign Up Confirmation Page
@@ -79,6 +71,4 @@ pnpm test:ui
 
 ### Signed In Home Page
 ![Screenshot 11](./screenshots/screenshot11.png)
-
-### Signed In Home Page - Tokens in console
 ![Screenshot 12](./screenshots/screenshot12.png)
