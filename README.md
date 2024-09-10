@@ -1,6 +1,6 @@
-# React + Vite Demo
+# React + Cognito + Query + Wouter Demo
 
-This is a sample Vite React application with Cognito authentication using React Query (Tanstack), Tailwind CSS, and Vitest for testing.
+This is a sample Vite React application with Cognito authentication using React Query (Tanstack), Wouter, Tailwind CSS, and Vitest for testing.
 
 ## Installation
 

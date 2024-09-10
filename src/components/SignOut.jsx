@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'wouter';
 
 import { useSignOut } from '../hooks/cognitoHooks';
 
 const SignOut = ({ ...props }) => {
     const accessToken = sessionStorage.getItem('accessToken');
     const { mutate, isLoading, isSuccess } = useSignOut();
-    const navigate = useNavigate();
+    const [, navigate] = useLocation();
 
     useEffect(() => {
         if (isSuccess) {

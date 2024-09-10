@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'wouter';
 
 import Home from './components/Home.jsx';
 import SignIn from './components/SignIn.jsx';
@@ -12,26 +12,25 @@ const isAuth = () => {
 };
 
 function AuthRoute({ children }) {
-    return isAuth() ? children : <Navigate to="/signin" replace />;
+    return isAuth() ? children : <Redirect to="/signin" />;
 }
 
 function SignRoute({ children }) {
-    return isAuth() ? <Navigate to="/home" replace /> : children;
+    return isAuth() ? <Redirect to="/home" /> : children;
 }
 
 function App() {
     return (
         <>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Navigate to="/home" replace />} />
-                    <Route path="/home" element={<AuthRoute><Home /></AuthRoute>} />
-                    <Route path="/signin" element={<SignRoute><SignIn /></SignRoute>} />
-                    <Route path="/signup" element={<SignRoute><SignUp /></SignRoute>} />
-                    <Route path="/confirm" element={<SignRoute><ConfirmSignUp /></SignRoute>} />
-                    <Route path="/forgot" element={<SignRoute><ResetPassword /></SignRoute>} />
-                </Routes>
-            </BrowserRouter>
+            <Switch>
+                <Route path="/"><Redirect to="/home" /></Route>                
+                <Route path="/home"><AuthRoute><Home /></AuthRoute></Route>
+                <Route path="/signin"><SignRoute><SignIn /></SignRoute></Route>                
+                <Route path="/signup"><SignRoute><SignUp /></SignRoute></Route>                
+                <Route path="/confirm"><SignRoute><ConfirmSignUp /></SignRoute></Route>
+                <Route path="/forgot"><SignRoute><ResetPassword /></SignRoute></Route>
+                <Route><h1>Page Not Found</h1></Route>
+            </Switch>
         </>
     );
 }

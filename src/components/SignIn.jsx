@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {  useNavigate,  Link } from 'react-router-dom';
+import { useLocation,  Link } from 'wouter';
 import hyphenLogo from '../assets/hyphen_logo.png';
 
 import { useSignIn } from '../hooks/cognitoHooks';
@@ -8,7 +8,7 @@ const Signin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { mutate, isLoading, error, isSuccess } = useSignIn();
-    const navigate = useNavigate();
+    const [, navigate] = useLocation();
 
     useEffect(() => {
         if (isSuccess) {

@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'wouter';
 import hyphenLogo from '../assets/hyphen_logo.png';
 
 import { useConfirmSignUp } from '../hooks/cognitoHooks';
 
 const ConfirmSignUp = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
+    const [location, navigate] = useLocation();
 
-    const [email, setEmail] = useState(location.state?.email || '');
+    const [email, setEmail] = useState(history.state?.email || '');
     const [code, setCode] = useState('');
     const { mutate, isLoading, error, isSuccess } = useConfirmSignUp();
 
