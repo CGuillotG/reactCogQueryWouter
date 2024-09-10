@@ -1,17 +1,16 @@
 import { useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { useSignOut } from '../hooks/cognitoHooks';
 
 const SignOut = ({ ...props }) => {
     const accessToken = sessionStorage.getItem('accessToken');
     const { mutate, isLoading, isSuccess } = useSignOut();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (isSuccess) {
-            // navigate('/signin');
-            window.location.href = '/signin';
+            navigate('/signin');
         }
     }, [isSuccess]);
 

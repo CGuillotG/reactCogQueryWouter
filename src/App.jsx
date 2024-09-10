@@ -6,20 +6,17 @@ import SignUp from './components/SignUp.jsx';
 import ConfirmSignUp from './components/ConfirmSignUp.jsx';
 import ResetPassword from './components/ResetPassword.jsx';
 
-function AuthRoute({ component: Component }) {
-    const isAuth = () => {
-        const accessToken = sessionStorage.getItem('accessToken');
-        return !!accessToken;
-    };
-    return isAuth() ? <Component /> : <Navigate to="/signin" replace />;
+const isAuth = () => {
+    const accessToken = sessionStorage.getItem('accessToken');
+    return !!accessToken;
+};
+
+function AuthRoute({ children }) {
+    return isAuth() ? children : <Navigate to="/signin" replace />;
 }
 
-function SignRoute({ component: Component }) {
-    const isAuth = () => {
-        const accessToken = sessionStorage.getItem('accessToken');
-        return !!accessToken;
-    };
-    return isAuth() ? <Navigate to="/home" replace /> : <Component />;
+function SignRoute({ children }) {
+    return isAuth() ? <Navigate to="/home" replace /> : children;
 }
 
 function App() {
@@ -28,11 +25,11 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Navigate to="/home" replace />} />
-                    <Route path="/home" element={<AuthRoute component={Home} />} />
-                    <Route path="/signin" element={<SignRoute component={SignIn} />} />
-                    <Route path="/signup" element={<SignRoute component={SignUp} />} />
-                    <Route path="/confirm" element={<SignRoute component={ConfirmSignUp} />} />
-                    <Route path="/forgot" element={<SignRoute component={ResetPassword} />} />
+                    <Route path="/home" element={<AuthRoute><Home /></AuthRoute>} />
+                    <Route path="/signin" element={<SignRoute><SignIn /></SignRoute>} />
+                    <Route path="/signup" element={<SignRoute><SignUp /></SignRoute>} />
+                    <Route path="/confirm" element={<SignRoute><ConfirmSignUp /></SignRoute>} />
+                    <Route path="/forgot" element={<SignRoute><ResetPassword /></SignRoute>} />
                 </Routes>
             </BrowserRouter>
         </>
