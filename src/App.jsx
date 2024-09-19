@@ -1,4 +1,5 @@
 import { Switch, Route, Redirect } from 'wouter';
+import PropTypes from 'prop-types';
 
 import Home from './components/Home.jsx';
 import SignIn from './components/SignIn.jsx';
@@ -18,6 +19,10 @@ function AuthRoute({ children }) {
 function SignRoute({ children }) {
     return isAuth() ? <Redirect to="/home" /> : children;
 }
+
+AuthRoute.propTypes, SignRoute.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 function App() {
     return (
