@@ -6,19 +6,14 @@ import {
     GlobalSignOutCommand
 } from '@aws-sdk/client-cognito-identity-provider';
 
-const cognitoConfig = {
-    region: import.meta.env.VITE_AWS_REGION,
-    userPoolId: import.meta.env.VITE_COGNITO_USER_POOL_ID,
-    clientId: import.meta.env.VITE_COGNITO_APP_CLIENT_ID
-};
-
 const client = new CognitoIdentityProviderClient({
-    region: cognitoConfig.region
+    region: import.meta.env.VITE_AWS_REGION,
+    clientId: import.meta.env.VITE_COGNITO_APP_CLIENT_ID
+    // userPoolId: import.meta.env.VITE_COGNITO_USER_POOL_ID,
 });
 
 export const signUp = async (email, password) => {
     const params = {
-        ClientId: cognitoConfig.clientId,
         Username: email,
         Password: password,
         UserAttributes: [{ Name: 'email', Value: email }]
@@ -29,7 +24,6 @@ export const signUp = async (email, password) => {
 
 export const confirmSignUp = async (email, code) => {
     const params = {
-        ClientId: cognitoConfig.clientId,
         Username: email,
         ConfirmationCode: code
     };
@@ -39,7 +33,6 @@ export const confirmSignUp = async (email, code) => {
 
 export const signIn = async (email, password) => {
     const params = {
-        ClientId: cognitoConfig.clientId,
         AuthFlow: 'USER_PASSWORD_AUTH',
         AuthParameters: {
             USERNAME: email,
@@ -54,7 +47,6 @@ export const signIn = async (email, password) => {
         console.error('Sign in error', error);
         throw error;
     }
-    // return client.send(command);
 };
 
 export const signOut = async accessToken => {
