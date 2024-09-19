@@ -1,21 +1,21 @@
-import { useEffect } from 'react';
 import { useLocation } from 'wouter';
 
 import { useSignOut } from '../hooks/cognitoHooks';
 
 const SignOut = ({ ...props }) => {
     const accessToken = sessionStorage.getItem('accessToken');
-    const { mutate, isLoading, isSuccess } = useSignOut();
+    const { mutate, isLoading } = useSignOut();
     const [, navigate] = useLocation();
 
-    useEffect(() => {
-        if (isSuccess) {
-            navigate('/signin');
-        }
-    }, [isSuccess]);
-
     const handleSignOut = () => {
-        mutate({ accessToken });
+        mutate(
+            { accessToken },
+            {
+                onSuccess: () => {
+                    navigate('/signin');
+                },
+            }
+        );
     };
 
     return (

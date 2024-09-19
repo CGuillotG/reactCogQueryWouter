@@ -1,25 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useLocation } from 'wouter';
 import hyphenLogo from '../assets/hyphen_logo.png';
 
 import { useConfirmSignUp } from '../hooks/cognitoHooks';
 
 const ConfirmSignUp = () => {
-    const [location, navigate] = useLocation();
+    const [, navigate] = useLocation();
 
     const [email, setEmail] = useState(history.state?.email || '');
     const [code, setCode] = useState('');
-    const { mutate, isLoading, error, isSuccess } = useConfirmSignUp();
-
-    useEffect(() => {
-        if (isSuccess) {
-            navigate('/signin');
-        }
-    }, [isSuccess]);
+    const { mutate, isLoading, error } = useConfirmSignUp();
 
     const handleConfirmSignup = e => {
         e.preventDefault();
-        mutate({ email, code });
+        mutate(
+            { email, code },
+            {
+                onSuccess: () => {
+                    navigate('/signin');
+                },
+            }
+        );
     };
 
     return (
@@ -84,6 +85,7 @@ const ConfirmSignUp = () => {
                             </div>
                             <button
                                 type="submit"
+                                disabled={isLoading}
                                 className="w-full rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                             >
                                 Verify account

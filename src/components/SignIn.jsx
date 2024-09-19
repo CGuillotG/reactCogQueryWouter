@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useLocation,  Link } from 'wouter';
 import hyphenLogo from '../assets/hyphen_logo.png';
 
@@ -7,18 +7,19 @@ import { useSignIn } from '../hooks/cognitoHooks';
 const Signin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { mutate, isLoading, error, isSuccess } = useSignIn();
+    const { mutate, isLoading, error } = useSignIn();
     const [, navigate] = useLocation();
-
-    useEffect(() => {
-        if (isSuccess) {
-            { navigate('/home') }
-        }
-    }, [isSuccess]);
 
     const handleSignin = e => {
         e.preventDefault();
-        mutate({ email, password });
+        mutate(
+            { email, password },
+            {
+                onSuccess: () => {
+                    navigate('/home');
+                },
+            }
+        );
     };
 
     return (
