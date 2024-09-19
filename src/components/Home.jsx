@@ -16,15 +16,15 @@ function parseJwt(token) {
 }
 
 function Home() {
-    if (!!sessionStorage.idToken) {
+    if (sessionStorage.idToken) {
         // console.log ("Amazon Cognito ID token encoded:",sessionStorage.idToken.toString());
         console.log('Amazon Cognito ID token decoded:', parseJwt(sessionStorage.idToken.toString()));
     }
-    if (!!sessionStorage.accessToken) {
+    if (sessionStorage.accessToken) {
         // console.log ("Amazon Cognito access token encoded:", sessionStorage.accessToken.toString());
         console.log('Amazon Cognito access token decoded:', parseJwt(sessionStorage.accessToken.toString()));
     }
-    if (!!sessionStorage.refreshToken) {
+    if (sessionStorage.refreshToken) {
         console.log('Amazon Cognito refresh token:', sessionStorage.refreshToken);
     }
 
