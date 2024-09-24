@@ -27,16 +27,15 @@ const SignUp = () => {
         if (password !== confirmPassword) {
             setPasswordError(true);
             return;
-        } else {
-            mutate(
-                { email, password },
-                {
-                    onSuccess: () => {
-                        navigate('/confirm', { state: { email } });
-                    },
-                }
-            );
         }
+        mutate(
+            { email, password },
+            {
+                onSuccess: () => {
+                    navigate('/confirm', { state: { email } });
+                },
+            }
+        );
     };
 
     return (
