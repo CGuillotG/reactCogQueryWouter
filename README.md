@@ -1,6 +1,11 @@
-# React + Cognito + Query + Wouter Demo
+# React + Cognito + Query + Tailwind + Wouter Demo
 
-This is a sample Vite React application with Cognito authentication using React Query (Tanstack), Wouter, Tailwind CSS, and Vitest for testing.
+#### Vite React app using:
+- AWS Cognito Authentication (User Pools, Identity Providers, etc.)
+- TanStack Query (React Query)
+- Tailwind CSS (with styles taken and modified from Flowbite)
+- Wouter (lighter and simpler version of react-router)
+- Vitest (equivalent of Jest for Vite)
 
 ## Installation
 
@@ -18,7 +23,6 @@ VITE_COGNITO_USER_POOL_ID=***********
 
 # AWS Cognito App Client ID
 VITE_COGNITO_APP_CLIENT_ID=***************
-
 ```
 
 ## Development
