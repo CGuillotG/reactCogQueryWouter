@@ -1,6 +1,6 @@
 import { useLocation } from 'wouter';
 
-import { useSignOut } from '../hooks/cognitoHooks';
+import { useSignOut } from '../hooks/authHooks';
 
 const SignOut = ({ ...props }) => {
     const accessToken = sessionStorage.getItem('accessToken');

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocation } from 'wouter';
 import hyphenLogo from '../assets/hyphen_logo.png';
 
-import { useConfirmSignUp } from '../hooks/cognitoHooks';
+import { useConfirmSignUp } from '../hooks/authHooks';
 
 const ConfirmSignUp = () => {
     const [, navigate] = useLocation();

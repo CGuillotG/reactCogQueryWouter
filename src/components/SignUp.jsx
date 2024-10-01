@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocation, Link } from 'wouter';
 import hyphenLogo from '../assets/hyphen_logo.png';
 
-import { useSignUp } from '../hooks/cognitoHooks';
+import { useSignUp } from '../hooks/authHooks';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');

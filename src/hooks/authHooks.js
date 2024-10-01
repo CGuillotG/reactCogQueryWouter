@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { signUp, signIn, signOut, confirmSignUp } from '../services/cognitoService';
+import { signUp, signIn, signOut, confirmSignUp } from '../services/authService';
 
 export const useSignIn = () => {
   return useMutation({
@@ -8,11 +8,11 @@ export const useSignIn = () => {
       return data;
     },
     onSuccess: (data) => {
-      if (data.AuthenticationResult) {
-        sessionStorage.setItem('accessToken', data.AuthenticationResult.AccessToken);
-        sessionStorage.setItem('idToken', data.AuthenticationResult.IdToken);
-        sessionStorage.setItem('refreshToken', data.AuthenticationResult.RefreshToken);
-        console.log('Sign in successful', data)
+      if (data.tokens) {
+        sessionStorage.setItem('accessToken', data.tokens.accessToken);
+        sessionStorage.setItem('idToken', data.tokens.idToken);
+        sessionStorage.setItem('refreshToken', data.tokens.refreshToken);
+        console.log('Sign in successful', data);
       }
     },
     onError: (error) => {
@@ -25,7 +25,7 @@ export const useSignUp = () => {
   return useMutation({
     mutationFn: ({ email, password }) => signUp(email, password),
     onSuccess: (data) => {
-      console.log('Sign in successful', data);
+      console.log('Sign up successful', data);
     }
   });
 };
@@ -48,4 +48,3 @@ export const useSignOut = () => {
     }
   });
 };
-

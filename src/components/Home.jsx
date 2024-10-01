@@ -33,7 +33,7 @@ function Home() {
             <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 h-screen">
                 <div className="mx-auto max-w-screen-sm text-center">
                     <h1 className="mb-4 text-5xl tracking-tight font-extrabold lg:text-6xl text-primary-600 dark:text-primary-500">
-                        React Cognito Demo
+                        React API Authentication Demo
                     </h1>
                     <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
                         You are signed in.
